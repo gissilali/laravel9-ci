@@ -47,22 +47,22 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN apt-get update \
     && apt-get install -y \
     php-redis \
-    php8.2-bcmath \
-    php8.2-cli \
-    php8.2-curl \
-    php8.2-dom \
-    php8.2-fpm \
-    php8.2-gd \
-    php8.2-imap \
-    php8.2-intl \
-    php8.2-ldap \
-    php8.2-mbstring \
-    php8.2-mysql \
-    php8.2-soap \
-    php8.2-sqlite \
-    php8.2-tidy \
-    php8.2-xdebug \
-    php8.2-zip \
+    php8.0-bcmath \
+    php8.0-cli \
+    php8.0-curl \
+    php8.0-dom \
+    php8.0-fpm \
+    php8.0-gd \
+    php8.0-imap \
+    php8.0-intl \
+    php8.0-ldap \
+    php8.0-mbstring \
+    php8.0-mysql \
+    php8.0-soap \
+    php8.0-sqlite \
+    php8.0-tidy \
+    php8.0-xdebug \
+    php8.0-zip \
     && update-alternatives --set php /usr/bin/php8.2 \
     && php -m \
     && php -v
