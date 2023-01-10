@@ -15,7 +15,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  DOCKER_IMAGE: 'silali/laravel9-ci'
+  DOCKER_IMAGE: 'silali/laravel9-ci:latest'
 
 jobs:
   push_to_registry:
