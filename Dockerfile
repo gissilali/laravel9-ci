@@ -58,6 +58,8 @@ RUN apt-get update \
     php8.0-tidy \
     php8.0-xdebug \
     php8.0-zip \
+    php8.0-memcached \
+    php8.0-redis \
     && update-alternatives --set php /usr/bin/php8.0 \
     && php -m \
     && php -v
