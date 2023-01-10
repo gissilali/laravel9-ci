@@ -1,19 +1,14 @@
 FROM debian:bullseye
 
-LABEL org.opencontainers.image.authors="info@lorenzbausch.de"
+LABEL maintainer = "Gibson Silali"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Do not install recommended or suggested packages
-RUN echo 'APT::Get::Install-Recommends "false";' >> /etc/apt/apt.conf \
-    && echo 'APT::Get::Install-Suggests "false";' >> /etc/apt/apt.conf
-
-# Create user 'laravel'
-RUN adduser --disabled-password --gecos '' laravel
+# Create user "laravel"
+RUN adduser --disabled-password --gecos "" laravel
 
 # Install basic packages
-RUN apt-get update \
-    && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     apt-transport-https \
     build-essential \
     ca-certificates \
@@ -31,17 +26,16 @@ RUN apt-get update \
     vim
 
 # Support Laravel Dusk
-RUN apt-get update \
-    && apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 \
-    && apt-get -y install chromium \
-    && apt-get -y install xvfb gtk2-engines-pixbuf \
-    && apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable \
-    && apt-get -y install imagemagick x11-apps \
-    && chromium --version
+RUN apt-get update && \
+    apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4 && \
+    apt-get -y install chromium && \
+    apt-get -y install xvfb gtk2-engines-pixbuf && \
+    apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable && \
+    apt-get -y install imagemagick x11-apps
 
 # Add key and repository
-RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
-    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
+    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
 
 # Install PHP
 RUN apt-get update \
@@ -63,7 +57,7 @@ RUN apt-get update \
     php8.0-tidy \
     php8.0-xdebug \
     php8.0-zip \
-    && update-alternatives --set php /usr/bin/php8.2 \
+    && update-alternatives --set php /usr/bin/php8.0 \
     && php -m \
     && php -v
 
