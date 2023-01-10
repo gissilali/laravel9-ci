@@ -40,27 +40,27 @@ RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 # Install PHP
 RUN apt-get update \
     && apt-get install -y \
-    php-redis \
-    php8.0-bcmath \
-    php8.0-cli \
-    php8.0-curl \
-    php8.0-dom \
-    php8.0-fpm \
-    php8.0-gd \
-    php8.0-imap \
-    php8.0-intl \
-    php8.0-ldap \
-    php8.0-mbstring \
-    php8.0-mysql \
-    php8.0-pgsql \
-    php8.0-soap \
-    php8.0-sqlite \
-    php8.0-tidy \
-    php8.0-xdebug \
-    php8.0-zip \
-    php8.0-memcached \
-    php8.0-redis \
-    && update-alternatives --set php /usr/bin/php8.0 \
+    php8.1-redis \
+    php8.1-bcmath \
+    php8.1-cli \
+    php8.1-curl \
+    php8.1-dom \
+    php8.1-fpm \
+    php8.1-gd \
+    php8.1-imap \
+    php8.1-intl \
+    php8.1-ldap \
+    php8.1-mbstring \
+    php8.1-mysql \
+    php8.1-pgsql \
+    php8.1-soap \
+    php8.1-sqlite \
+    php8.1-tidy \
+    php8.1-xdebug \
+    php8.1-zip \
+    php8.1-memcached \
+    php8.1-redis \
+    && update-alternatives --set php /usr/bin/php8.1 \
     && php -m \
     && php -v
 
